@@ -1,0 +1,874 @@
+:root {
+    --primary-color: #0f0f11;
+    --second-color: rgba(255, 255, 255, 0.3);
+}
+
+*{
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--primary-color);
+    margin: 0;
+    font-family: "Audiowide", sans-serif;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1em;
+    border-radius: 16px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 255, 255, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    .logo-btn {
+        height: 35px;
+        width: 40px;
+        
+        &:hover{
+           box-shadow: 0 4px 30px rgba(0, 255, 255, 1);
+        }
+    }
+
+    nav {
+       display: none;
+    }
+
+    .container{
+        display: flex;
+        place-content: space-between;
+    }
+
+    .mobile-menu{
+        cursor: pointer;
+    }
+}
+
+a {
+    color: #ffff; // to style all hyperlink Element
+    text-decoration: none;
+}
+
+ul {  // Style all Unordered List
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+section { // Style all Section
+    padding: 5em 2em;
+}
+
+.hero {
+    margin-top: 7em;
+    text-align: center;
+    height: 50vh;
+}
+
+.left-col {
+
+    .subhead {
+        font-size: 1.5ex;
+        text-transform: uppercase;
+        font-weight: lighter;
+        color: #a0a0a0;
+        letter-spacing: .3em;
+        opacity: 0;
+        transform: translateY(-30px);
+        animation: subHead 1s ease-out forwards;
+        animation-delay: 0.4s;
+    }
+
+    @keyframes subHead {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+
+    h1{
+        color: #ffffff;
+        font-size: 2em;
+        line-height: 1.1em;
+        margin-top: .2em;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeIn 1s ease-out forwards;
+        animation-delay: 0.4s;
+    }
+
+     @keyframes fadeIn {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+    .primary-cta {
+        background: cyan;
+        color: black;
+        text-decoration: none;
+        padding: .8em .5em;
+        font-size: 1.5ex;
+        border-radius: .5em;
+        font-weight: bold;
+        display: inline-block;
+        box-shadow: 0 4px 30px rgba(0, 255, 255, 0.3);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: primaryCta 1s ease-out forwards;
+        animation-delay: 1s;
+
+        &:hover{
+          color: white;
+           box-shadow: 0 4px 30px rgba(0, 255, 255, 1);
+        }
+
+        @keyframes primaryCta {
+          to{
+            opacity: 1;
+            transform: translate(0);
+          }
+        }
+    }
+}
+
+.gallery-text {
+  margin-top: -2em;
+    font-size: 1.5em;
+    color: white;
+    margin-left: 1em;
+    backdrop-filter: blur(10px);
+    padding: .5em;
+    border-radius: 2em;
+    transition: 1s;
+    
+
+    &:hover {
+      color: cyan;
+      transform: translateY(-20%);
+    }
+}
+
+.background-carousel {
+    margin: 0 auto;
+    width: 80%;
+    height: 300px; /* You can adjust the height */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: carouselBG 20s infinite;
+    transition: background-image 1s ease-in-out;
+  
+  }
+
+  .background-carousel{
+    opacity: 1;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .background-carousel.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Keyframes to change background images */
+  @keyframes carouselBG {
+    0%, 20% {
+      background-image: url('../Assets/images/gall-1.jpg');
+    }
+    21%, 40% {
+      background-image: url('../Assets/images/gall-3.jpg');
+    }
+    41%, 60% {
+      background-image: url('../Assets/images/gall-5.jpg');
+    }
+    61%, 80% {
+      background-image: url('../Assets/images/gall-7.jpg');
+    }
+    81%, 100% {
+      background-image: url('../Assets/images/gall-2.png');
+    }
+  }
+  
+  /* Optional: make it responsive on small screens */
+  @media (max-width: 768px) {
+    .background-carousel {
+      height: 250px;
+    }
+  }
+  
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 5;
+    transition: background 0.3s;
+  }
+  
+  .carousel-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .carousel-btn.prev {
+    left: 10px;
+  }
+  
+  .carousel-btn.next {
+    right: 10px;
+  }
+  
+  .background-carousel {
+    position: relative; /* Make sure this is here to position the buttons correctly */
+  }
+
+
+
+.about-us {
+    margin-top: -2em;
+
+    h1 
+    {
+    font-size: 1.5em;
+    color: white;
+    backdrop-filter: blur(10px);
+    border-radius: 2em;
+    transition: 1s;
+    
+
+    &:hover {
+      color: cyan;
+      transform: translateY(-20%);
+    }
+    }
+
+    .container{
+        display: block;
+
+        p {
+            color: white;
+            font-size: 1em;
+        }
+
+        .about-img {
+            width: 100%;
+            border-radius: 1em;
+        }
+    }
+}
+
+  .mvp-section {
+      margin-top: -7em;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: var(--primary-color);
+
+    h1 {
+      font-size: 1.5em;
+      color: white;
+      backdrop-filter: blur(10px);
+      border-radius: 2em;
+      margin-bottom: .5em;
+      transition: 1s;
+
+    
+
+    &:hover {
+      color: cyan;
+      transform: translateY(-20%);
+    }
+  }
+  
+  }
+
+  .mvp-section .container
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 0;
+  margin-top: -3em;
+}
+
+.container .box
+{
+  position: relative;
+  width: 320px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px 30px;
+  transition: 0.5s;
+}
+
+.container .box::before
+{
+  content:' ';
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: 50%;
+  height: 100%;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+}
+
+.container .box::after
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 50;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  transform: skewX(15deg);
+  transition: 0.5s;
+  filter: blur(30px);
+}
+
+.container .box:hover:before,
+.container .box:hover:after
+{
+  transform: skewX(0deg);
+  left: 10px;
+  width: calc(100% - 90px);
+  
+}
+
+.container .box:nth-child(1):before,
+.container .box:nth-child(1):after
+{
+  background: linear-gradient(315deg, #ffffff, green)
+}
+
+.container .box:nth-child(2):before,
+.container .box:nth-child(2):after
+{
+  background: linear-gradient(315deg, #03a9f4, #ff0058)
+}
+
+.container .box:nth-child(3):before,
+.container .box:nth-child(3):after
+{
+  background: linear-gradient(315deg, #4dff03, #00d0ff)
+}
+
+.container .box span
+{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.container .box span::before
+{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.1s;  
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08)
+}
+
+.container .box:hover span::before
+{
+  top: -50px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.container .box span::after
+{
+  content:'';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: 0.5s;
+  animation: animate 2s ease-in-out infinite;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  animation-delay: -1s;
+}
+
+.container .box:hover span:after
+{
+  bottom: -50px;
+  right: 50px;
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+@keyframes animate
+{
+  0%, 100%
+  {
+    transform: translateY(10px);
+  }
+  
+  50%
+  {
+    transform: translate(-10px);
+  }
+}
+
+.container .box .content
+{
+  position: relative;
+  left: 0;
+  padding: 20px 40px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  z-index: 1;
+  transform: 0.5s;
+  color: #fff;
+}
+
+.container .box:hover .content
+{
+  left: -25px;
+  padding: 60px 40px;
+}
+
+.container .box .content h2
+{
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.container .box .content p
+{
+  font-size: .875em;
+  margin-bottom: 10px;
+  line-height: 1.4em;
+}
+
+.container .box .content a
+{
+  display: inline-block;
+  font-size: .625em;
+  color: #111;
+  background: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.container .box .content a:hover
+{
+  background: rgb(118, 204, 204);
+  color: #fff;
+  box-shadow: 0 1px 15px rgba(1, 1, 1, 0.2);
+}
+
+
+
+/*TEAM SECTION*/
+.team-text{
+      font-size: 1.5em;
+      color: white;
+      backdrop-filter: blur(10px);
+      border-radius: 2em;
+      margin-bottom: .5em;
+      transition: 1s;
+      
+      
+    
+
+    &:hover {
+      color: cyan;
+      transform: translateY(-20%);
+    }
+}
+.team-section {
+	width: 85%;
+	padding: 25px;
+	margin: auto;
+	text-align: center;
+  margin-top: -7em;
+
+
+
+	.team-container{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.team-member {
+			width: 300px;
+			background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+			border-radius: 10px;
+			box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+			padding: 20px;
+			margin: 20px;
+			text-align: center;
+			cursor: pointer;
+			transition: 0.3s ease;
+
+			&:hover {
+				transform: translateY(-20px);
+			}
+
+			img {
+				border-radius: 50%;
+				border: 1px solid cyan;
+				width: 150px;
+				height: 150px;
+				object-fit: cover;
+				margin-bottom: 10px;
+			}
+
+			h3 {
+		    font-size: 28px;
+				color: cyan;
+				margin-bottom: 10px;
+			}
+
+			.title {
+        font-weight: bold;
+				font-size: 18px;
+				color: #ffff;
+				margin-bottom: 10px;
+			}
+
+			.content {
+				font-size: 14px;
+				color: white;
+				line-height: 1.3;
+        text-align: center;
+			}
+		}
+	}
+}
+
+/*CONTACT SECTION*/
+.contact-section {
+    h2{
+        font-size: 1.5em;
+      color: white;
+      backdrop-filter: blur(10px);
+      border-radius: 2em;
+      margin-bottom: .5em;
+      transition: 1s;
+      text-align: left;
+      margin-bottom: 1.5em;
+    
+
+    &:hover {
+      color: cyan;
+      transform: translateY(-20%);
+    }
+    }
+
+    label {
+        color: white;
+        display: block;
+        font-size: 1em;
+        margin: .5em;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: .8em;
+        margin-bottom: 1em;
+        border: 1px solid gray;
+        border-radius: .5em;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background: cyan;
+        color: black;
+        font-size: 1.3em;
+        font-weight: bold;
+        border: none;
+        margin-bottom: 5em;
+        border-radius: .5em;
+        display: inline-block;
+        padding: .5em 1em;
+        width: unset;
+        cursor: pointer;
+
+        &:hover{
+          color: white;
+           box-shadow: 0 4px 30px rgba(0, 255, 255, 1);
+        }
+
+    }
+}
+
+
+
+
+/*FOOTER*/
+.footer #button{
+	width:15px;
+	height:5px;
+	border: cyan 5px solid;
+   box-shadow: 0 1px 7px rgba(0, 255, 255, 1);
+	border-radius: 35px;
+	margin:0 auto;
+	position: relative;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.footer #button:hover{
+	width:35px;
+	height:35px;
+	border: #3A3A3A 12px solid;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	position: relative;
+}
+.footer {
+	bottom:0;
+	left:0;
+	position: fixed;
+    width: 100%;
+    height: 2em;
+    overflow:hidden;
+    margin:0 auto;
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	z-index:999;
+}
+.footer:hover {
+	-webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+	height: 10em;
+}
+.footer #container{
+	margin-top:5px;
+	width:100%;
+  height:100%;
+  position:relative;
+  top:0;
+  left:0;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}
+.footer_center{
+	width:500px;
+	float:left;
+  text-align:center;
+}
+.footer h3{
+  color: #00FFFF;
+	font-size: 15px;
+	font-weight: 100;
+	margin-top:70px;
+	margin-left:40px;
+}
+
+.social {
+  display: block;
+  justify-content: center;
+
+  .social-list{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5em;
+    margin-bottom: 1em;
+  }
+
+  small{
+    color: white;
+    font-size: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+
+
+
+nav.menu-btn {
+    display: block;
+}
+
+nav {
+    position: fixed;
+    z-index: 999;
+    width: 30%;
+    right: 0;
+    top: 0;
+    background: black;
+    border-end-start-radius: 2em;
+    height: 90vh;
+    padding: 1em;
+
+    ul.primary-nav {
+        margin-top: 5em;
+    }
+
+    li{
+
+        a{
+            color: white;
+            text-decoration: none;
+            display: block; // display block is added in <a> element if you want to add padding or margin
+            padding: .5em;
+            font-size: 1.4em;
+            text-align: right;
+
+            &:hover {
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.mobile-menu-exit{
+    float: right;
+    margin: .5em;
+    cursor: pointer;
+}
+
+
+
+
+@media only screen and (min-width: 768px){
+  .mobile-menu, .mobile-menu-exit{
+    display: none;
+  }
+
+  .navbar.container{
+    display: grid;
+    grid-template-columns: 180px auto;
+  }
+
+  .navbar nav{
+        display: flex;
+        justify-content: right;
+        background: none;
+        position: unset;
+        height: auto;
+        width: 100%;
+        padding: 0;
+        margin-top: .5em;
+
+        ul{
+          display: flex;
+        }
+
+         a{
+            color: white;
+            font-size: 1em;
+            padding: 1em 1em;
+        }
+
+         ul.primary-nav {
+            margin: 0;
+        }
+  }
+
+
+.about-us{
+  margin-top: 2em;
+  .container{
+    display: flex;
+
+    .about-img{
+      height: 500px;
+      width: 500px;
+      margin-left: 5em;
+    }
+  }
+}
+
+.contact-section{
+
+  justify-content: center;
+  align-items: center;
+
+  h2{
+    text-align: center;
+  }
+
+}
+}
+
+
+  @media only screen and (min-width: 1080px) {
+
+    .container {
+        width: 1080px;
+        margin: 0 auto;
+    }
+
+     section {
+        padding: 10em 4em;
+    }
+  }
+
+
+
